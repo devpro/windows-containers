@@ -7,14 +7,41 @@ on:
     branches: [ main ]
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      apps: ${{ steps.filter.outputs.changes }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Identify changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          base: ${{ github.ref }}
+          filters: |
+            winsamplenet48svc: samples/dotnet-4.8/SampleWindowsService/*.!(md)
+
   image-push:
+    needs: changes
+    if: needs.changes.outputs.apps != '[]'
+    strategy:
+      matrix:
+        app: ${{ fromJSON(needs.changes.outputs.apps) }}
     runs-on: windows-2022
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Build and push container image
+        if: matrix.app == 'winsamplenet48svc'
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: devprofr/winsamplenet48svc
