@@ -32,9 +32,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Docker
-        uses: docker/setup-docker-action@v4
+      # - name: Set up Docker
+      #   uses: docker/setup-docker-action@v4
+
+      # - name: Build container image
+      #   run: docker build . -t devpro/samplewinsvc -f SampleWindowsService\Dockerfile
+      #   working-directory: samples\dotnet-4.8
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Build container image
-        run: docker build . -t devpro/samplewinsvc -f SampleWindowsService\Dockerfile
-        working-directory: samples\dotnet-4.8
+        uses: docker/build-push-action@v6
+        with:
+          context: samples\dotnet-4.8
+          file: SampleWindowsService\Dockerfile
+          push: false
+          tags: devpro/samplewinsvc:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
