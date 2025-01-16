@@ -1,6 +1,9 @@
 # Windows Containers
 
-Let's see how we can run in containers applications that can only run in Windows.
+[![CI](https://github.com/devpro/windows-containers/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/devpro/windows-containers/actions/workflows/ci.yml)
+[![CD](https://github.com/devpro/windows-containers/actions/workflows/cd.yml/badge.svg?branch=main)](https://github.com/devpro/windows-containers/actions/workflows/cd.yml)
+
+Let's see how to manage applications that can only run in Windows containers.
 
 ## Samples
 

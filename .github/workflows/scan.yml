@@ -1,0 +1,18 @@
+name: Scan
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  image-scan:
+    runs-on: windows-2022
+    steps:
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: 'docker.io/devprofr/winsamplenet48svc:latest'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
