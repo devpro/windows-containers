@@ -1,0 +1,46 @@
+# title: Continuous Integration pipeline
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore samples\dotnet-4.8\Devpro.SampleWindowsApps.sln
+
+      - name: Build
+        run: msbuild samples\dotnet-4.8\Devpro.SampleWindowsApps.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+
+  image-build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker/setup-docker-action@v4
+
+      - name: Pull base images
+        run: |
+          docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8
+          docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
+
+      - name: Build container image
+        run: docker build . -t devprofr/winsamplenet48svc -f SampleWindowsService\Dockerfile
+        working-directory: samples\dotnet-4.8

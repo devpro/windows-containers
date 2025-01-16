@@ -1,0 +1,26 @@
+# title: Continuous Delivery pipeline
+name: CD
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  image-push:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build and push container image
+        uses: mr-smithers-excellent/docker-build-push@v6
+        with:
+          image: devprofr/winsamplenet48svc
+          registry: docker.io
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          platform: windows/amd64
+          dockerfile: SampleWindowsService\Dockerfile
+          directory: samples\dotnet-4.8
+          tags: latest
