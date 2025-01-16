@@ -1,3 +1,4 @@
+# title: Continuous Integration pipeline
 name: CI
 
 on:
@@ -26,7 +27,7 @@ jobs:
       - name: Build
         run: msbuild samples\dotnet-4.8\Devpro.SampleWindowsApps.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
 
-  image-scan:
+  image-build:
     runs-on: windows-2022
     steps:
       - name: Checkout code
@@ -41,5 +42,5 @@ jobs:
           docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
 
       - name: Build container image
-        run: docker build . -t devpro/samplewinsvc -f SampleWindowsService\Dockerfile
+        run: docker build . -t devprofr/winsamplenet48svc -f SampleWindowsService\Dockerfile
         working-directory: samples\dotnet-4.8
