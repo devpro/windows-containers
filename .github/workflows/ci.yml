@@ -9,21 +9,32 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-2022
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
 
-    - name: Setup NuGet
-      uses: nuget/setup-nuget@v2
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v2
 
-    - name: Restore NuGet packages
-      run: nuget restore samples\dotnet-4.8\Devpro.SampleWindowsApps.sln
+      - name: Restore NuGet packages
+        run: nuget restore samples\dotnet-4.8\Devpro.SampleWindowsApps.sln
 
-    - name: Build
-      run: msbuild samples\dotnet-4.8\Devpro.SampleWindowsApps.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+      - name: Build
+        run: msbuild samples\dotnet-4.8\Devpro.SampleWindowsApps.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+
+  image-scan:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker/setup-docker-action@v4
+
+      - name: Build container image
+        run: docker build . -t devpro/samplewinsvc -f SampleWindowsService\Dockerfile
+        working-directory: samples\dotnet-4.8
