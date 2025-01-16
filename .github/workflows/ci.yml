@@ -17,7 +17,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  check-changes:
+  changes:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read

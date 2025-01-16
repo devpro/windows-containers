@@ -7,7 +7,7 @@ jobs:
   image-scan:
     runs-on: windows-2022
     steps:
-      # deactivated: Trivy doesn't scan .NET 4.8 code
+      # deactivated: doesn't scan .NET 4.8 code
       # - name: Run Trivy vulnerability scanner
       #   uses: aquasecurity/trivy-action@0.28.0
       #   with:
@@ -17,10 +17,11 @@ jobs:
       #     ignore-unfixed: true
       #     vuln-type: 'os,library'
       #     severity: 'CRITICAL,HIGH'
-      - name: Scan image
-        uses: anchore/scan-action@v6
-        with:
-          image: docker.io/devprofr/winsamplenet48svc:latest
+      # deactivated: is in error and doesn't support Windows and doesn't scan .NET 4.8 code
+      # - name: Scan image
+      #   uses: anchore/scan-action@v6
+      #   with:
+      #     image: docker.io/devprofr/winsamplenet48svc:latest
       - name: Run Snyk to check Docker image for vulnerabilities
         uses: snyk/actions/docker@master
         env:
