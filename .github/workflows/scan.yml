@@ -23,14 +23,14 @@ jobs:
       #   env:
       #     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       #   with:
-      #     image: ${{ github.event.inputs.custom_variable }}
+      #     image: ${{ github.event.inputs.container_image }}
 
       # deactivated: fatal error "run-once.go:263 401 invaid response code" (https://github.com/deepfence/package-scanner/blob/1a61bae63adbae62a4133dd516bd04223f017f4a/run-once.go#L261, need an instance running and an account, may be possible with https://portal.deepfence.cloud/)
       # - name: Run Deepfence Vulnerability Mapper
       #   env:
       #     DEEPFENCE_CONSOLE_URL: 127.0.0.1
       #     DEEPFENCE_KEY: key
-      #     FULL_IMAGE_NAME: ${{ github.event.inputs.custom_variable }}
+      #     FULL_IMAGE_NAME: ${{ github.event.inputs.container_image }}
       #     FAIL_CVE_COUNT: 100
       #     FAIL_CRITICAL_CVE_COUNT: 10
       #     FAIL_HIGH_CVE_COUNT: 100
@@ -47,7 +47,7 @@ jobs:
         id: scan
         uses: anchore/scan-action@v6
         with:
-          image: ${{ github.event.inputs.custom_variable }}
+          image: ${{ github.event.inputs.container_image }}
           severity-cutoff: critical
           fail-build: false # TODO: review it when configuration is made
 
@@ -66,7 +66,7 @@ jobs:
       # - name: Run Trivy vulnerability scanner
       #   uses: aquasecurity/trivy-action@0.28.0
       #   with:
-      #     image-ref: ${{ github.event.inputs.custom_variable }}
+      #     image-ref: ${{ github.event.inputs.container_image }}
       #     format: 'table'
       #     exit-code: '1'
       #     ignore-unfixed: true
