@@ -10,7 +10,7 @@ on:
 
 jobs:
   image-scan-linux:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       security-events: write
     steps:
@@ -52,9 +52,11 @@ jobs:
           fail-build: false # TODO: review it when configuration is made
 
       - name: Inspect action SARIF report
+        if: always()
         run: cat ${{ steps.scan.outputs.sarif }}
 
       - name: Upload Anchore scan SARIF report
+        if: always()
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
