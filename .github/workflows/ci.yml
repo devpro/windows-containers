@@ -33,7 +33,7 @@ jobs:
         with:
           base: ${{ github.ref }}
           filters: |
-            winsamplenet48svc: samples/dotnet-4.8/SampleWindowsService/*.!(md)
+            winsamplenet48svc: samples/dotnet-4.8/SampleWindowsService/*
 
   build:
     runs-on: windows-2022
