@@ -67,10 +67,10 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-docker-action@v4
 
-      - name: Pull base images
-        run: |
-          docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8
-          docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
+      # - name: Pull base images
+      #   run: |
+      #     docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8
+      #     docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
 
       - name: Build container image
         if: matrix.app == 'winsamplenet48svc'
