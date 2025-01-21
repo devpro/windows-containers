@@ -7,10 +7,10 @@ Let's see how to manage applications that can only run in Windows containers.
 
 ## Samples
 
-Name                                                                              | Language | Framework
-----------------------------------------------------------------------------------|----------|----------
+Name                                                                        | Language | Framework
+----------------------------------------------------------------------------|----------|----------
 [**MVC Web Application**](samples/dotnet-4.8/README.md#mvc-web-application) | C#       | .NET 4.8
-[**Windows Service**](samples/dotnet-4.8/README.md#sample-windows-service) | C#       | .NET 4.8
+[**Windows Service**](samples/dotnet-4.8/README.md#sample-windows-service)  | C#       | .NET 4.8
 
 ## Documentation
 
