@@ -6,7 +6,7 @@ WORKDIR /src
 
 COPY . .
 RUN nuget restore
-RUN msbuild Devpro.SampleWindowsApps.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+RUN msbuild SampleWindowsService/SampleWindowsService.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
 
 # https://mcr.microsoft.com/en-us/artifact/mar/dotnet/framework/runtime/tags
 FROM mcr.microsoft.com/dotnet/framework/runtime:${DOTNET_VERSION} AS runtime

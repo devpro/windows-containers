@@ -65,12 +65,20 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-docker-action@v4
 
+      - &docker-build
+        name: Build ${{ env.IMAGE_NAME }} container image
+        if: contains(needs.changes.outputs.apps, '${{ env.IMAGE_NAME }}')
+        run: docker build . -t devprofr/${{ env.IMAGE_NAME }} -f ${{ env.PROJECT_PATH }}/Dockerfile
+        working-directory: samples/dotnet-4.8
+
       - name: Build winsamplenet48mvcwebapp container image
-        if: contains(needs.changes.outputs.apps, 'winsamplenet48mvcwebapp')
-        run: docker build . -t devprofr/winsamplenet48mvcwebapp -f SampleMvcWebApp\Dockerfile
-        working-directory: samples\dotnet-4.8
+        env:
+          IMAGE_NAME: winsamplenet48mvcwebapp
+          PROJECT_PATH: SampleMvcWebApp
+        <<: *docker-build
 
       - name: Build winsamplenet48svc container image
-        if: contains(needs.changes.outputs.apps, 'winsamplenet48svc')
-        run: docker build . -t devprofr/winsamplenet48svc -f SampleWindowsService\Dockerfile
-        working-directory: samples\dotnet-4.8
+        env:
+          IMAGE_NAME: winsamplenet48svc
+          PROJECT_PATH: SampleWindowsService
+        <<: *docker-build
