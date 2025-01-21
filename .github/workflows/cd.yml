@@ -65,7 +65,7 @@ jobs:
           docker push devprofr/winsamplenet48svc:latest
     env:
       CONTAINER_REGITRY_DOMAIN: docker.io
-      IMAGE_TAG: 1.0.${GITHUB_RUN_ID}
+      IMAGE_TAG: 1.0.${{ github.run_id }}
 
       # WONTFIX: doesn't work on Windows image
       # - name: Log in to Docker Hub
@@ -84,7 +84,7 @@ jobs:
       #     context: samples\dotnet-4.8
       #     file: SampleWindowsService\Dockerfile
       #     push: true
-      #     tags: devprofr/winsamplenet48svc:1.0.${GITHUB_RUN_ID}
+      #     tags: devprofr/winsamplenet48svc:1.0.${{ github.run_id }}
 
       # TODO: works but slow
       # - name: Build and push container image
