@@ -33,7 +33,7 @@ jobs:
         with:
           base: ${{ github.ref }}
           filters: |
-            winsamplenet48svc: samples/dotnet-4.8/SampleWindowsService/*.!(md)
+            winsamplenet48svc: samples/dotnet-4.8/SampleWindowsService/*
 
   build:
     runs-on: windows-2022
@@ -67,10 +67,10 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-docker-action@v4
 
-      - name: Pull base images
-        run: |
-          docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8
-          docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
+      # - name: Pull base images
+      #   run: |
+      #     docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8
+      #     docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
 
       - name: Build container image
         if: matrix.app == 'winsamplenet48svc'
