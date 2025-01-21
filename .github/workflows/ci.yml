@@ -66,11 +66,11 @@ jobs:
         uses: docker/setup-docker-action@v4
 
       - name: Build winsamplenet48mvcwebapp container image
-        if: needs.changes.outputs.apps.winsamplenet48mvcwebapp == 'true'
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48mvcwebapp')
         run: docker build . -t devprofr/winsamplenet48mvcwebapp -f SampleMvcWebApp\Dockerfile
         working-directory: samples\dotnet-4.8
 
       - name: Build winsamplenet48svc container image
-        if: needs.changes.outputs.apps.winsamplenet48svc == 'true'
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48svc')
         run: docker build . -t devprofr/winsamplenet48svc -f SampleWindowsService\Dockerfile
         working-directory: samples\dotnet-4.8
