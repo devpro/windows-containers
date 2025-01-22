@@ -27,14 +27,12 @@ jobs:
         with:
           base: ${{ github.ref }}
           filters: |
+            winsamplenet48mvcwebapp: samples/dotnet-4.8/SampleMvcWebApp/*
             winsamplenet48svc: samples/dotnet-4.8/SampleWindowsService/*
 
   image-push:
     needs: changes
     if: needs.changes.outputs.apps != '[]'
-    strategy:
-      matrix:
-        app: ${{ fromJSON(needs.changes.outputs.apps) }}
     runs-on: windows-2022
     steps:
       - name: Checkout code
@@ -48,18 +46,35 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build container images
-        if: matrix.app == 'winsamplenet48svc'
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48mvcwebapp')
+        run: |
+          cd samples\dotnet-4.8
+          docker build . --tag devprofr/winsamplenet48mvcwebapp:${{ env.IMAGE_TAG }} -f SampleMvcWebApp\Dockerfile
+
+      - name: Push image to container registry
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48mvcwebapp')
+        run: |
+          docker push devprofr/winsamplenet48mvcwebapp:${{ env.IMAGE_TAG }}
+
+      - name: Push latest tag to container registry
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48mvcwebapp') && github.ref_name == 'main'
+        run: |
+          docker tag devprofr/winsamplenet48mvcwebapp:${{ env.IMAGE_TAG }} devprofr/winsamplenet48mvcwebapp:latest
+          docker push devprofr/winsamplenet48mvcwebapp:latest
+
+      - name: Build container images
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48svc')
         run: |
           cd samples\dotnet-4.8
           docker build . --tag devprofr/winsamplenet48svc:${{ env.IMAGE_TAG }} -f SampleWindowsService\Dockerfile
 
       - name: Push image to container registry
-        if: matrix.app == 'winsamplenet48svc'
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48svc')
         run: |
           docker push devprofr/winsamplenet48svc:${{ env.IMAGE_TAG }}
 
       - name: Push latest tag to container registry
-        if: matrix.app == 'winsamplenet48svc' && github.ref_name == 'main'
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48svc') && github.ref_name == 'main'
         run: |
           docker tag devprofr/winsamplenet48svc:${{ env.IMAGE_TAG }} devprofr/winsamplenet48svc:latest
           docker push devprofr/winsamplenet48svc:latest

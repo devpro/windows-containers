@@ -33,6 +33,7 @@ jobs:
         with:
           base: ${{ github.ref }}
           filters: |
+            winsamplenet48mvcwebapp: samples/dotnet-4.8/SampleMvcWebApp/*
             winsamplenet48svc: samples/dotnet-4.8/SampleWindowsService/*
 
   build:
@@ -51,14 +52,11 @@ jobs:
         run: nuget restore samples\dotnet-4.8\Devpro.SampleWindowsApps.sln
 
       - name: Build
-        run: msbuild samples\dotnet-4.8\Devpro.SampleWindowsApps.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+        run: msbuild samples\dotnet-4.8\Devpro.SampleWindowsApps.sln /p:Configuration=Release
 
   image-build:
     needs: changes
     if: needs.changes.outputs.apps != '[]'
-    strategy:
-      matrix:
-        app: ${{ fromJSON(needs.changes.outputs.apps) }}
     runs-on: windows-2022
     steps:
       - name: Checkout code
@@ -67,12 +65,12 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-docker-action@v4
 
-      # - name: Pull base images
-      #   run: |
-      #     docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8
-      #     docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
+      - name: Build winsamplenet48mvcwebapp container image
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48mvcwebapp')
+        run: docker build . -t devprofr/winsamplenet48mvcwebapp -f SampleMvcWebApp\Dockerfile
+        working-directory: samples/dotnet-4.8
 
-      - name: Build container image
-        if: matrix.app == 'winsamplenet48svc'
+      - name: Build winsamplenet48svc container image
+        if: contains(needs.changes.outputs.apps, 'winsamplenet48svc')
         run: docker build . -t devprofr/winsamplenet48svc -f SampleWindowsService\Dockerfile
-        working-directory: samples\dotnet-4.8
+        working-directory: samples/dotnet-4.8
