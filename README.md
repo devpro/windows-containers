@@ -15,3 +15,5 @@ Name                                                                        | La
 ## Documentation
 
 * [Workstation](docs/workstation.md)
+* [Cluster validation](docs/workstation.md)
+* [Utilities](docs/utilities.md)
