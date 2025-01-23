@@ -10,6 +10,8 @@ kubectl create ns stress-test
 
 ## PowerShell Script
 
+Use of [PowerShell image](https://mcr.microsoft.com/en-us/artifact/mar/powershell/tags)
+
 ```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
@@ -63,7 +65,9 @@ EOF
 Monitor with:
 
 ```bash
+kubectl logs windows-memory-test -n stress-test
 kubectl top pod windows-memory-test -n stress-test
+kubectl describe pod windows-memory-test -n stress-test
 ```
 
 ## Clean up
