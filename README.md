@@ -14,6 +14,8 @@ Name                                                                        | La
 
 ## Documentation
 
-* [Workstation](docs/workstation.md)
 * [Cluster validation](docs/workstation.md)
+* [Observability](docs/observability.md)
+* [Stress test](docs/stress-test.md)
 * [Utilities](docs/utilities.md)
+* [Workstation](docs/workstation.md)
