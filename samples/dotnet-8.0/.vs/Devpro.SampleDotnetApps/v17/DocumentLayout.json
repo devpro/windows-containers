@@ -1,0 +1,244 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\pages\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\pages\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\pages\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\pages\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|c:\\users\\bertrandthomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\samplerazorwebapp\\samplerazorwebapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{3119A1E3-FE05-4648-9EE4-1F6060284561}|src\\SampleRazorWebApp\\SampleRazorWebApp.csproj|solutionrelative:src\\samplerazorwebapp\\samplerazorwebapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\appsettings.Development.json",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-28T15:18:53.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\appsettings.json",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-28T15:18:52.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Program.cs",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Program.cs",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T15:18:48.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-28T15:18:37.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-28T15:18:36.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Pages\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Privacy.cshtml",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Pages\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-28T15:18:34.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Index.cshtml",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Pages\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-28T15:18:34.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Error.cshtml",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Pages\\Error.cshtml",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\Error.cshtml",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Pages\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-28T15:18:32.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Pages\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\_ViewStart.cshtml",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Pages\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-28T15:18:31.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Pages\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Pages\\_ViewImports.cshtml",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Pages\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-28T15:18:28.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Dockerfile",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Dockerfile",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Dockerfile",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-28T15:14:43.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-28T15:14:30.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SampleRazorWebApp",
+              "DocumentMoniker": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\SampleRazorWebApp.csproj",
+              "RelativeDocumentMoniker": "src\\SampleRazorWebApp\\SampleRazorWebApp.csproj",
+              "ToolTip": "C:\\Users\\BertrandThomas\\workspace\\devpro\\windows-containers\\samples\\dotnet-8.0\\src\\SampleRazorWebApp\\SampleRazorWebApp.csproj",
+              "RelativeToolTip": "src\\SampleRazorWebApp\\SampleRazorWebApp.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-28T15:14:27.837Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
