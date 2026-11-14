@@ -14,4 +14,8 @@ WORKDIR /app
 
 COPY --from=build /src/SampleWindowsService/bin/Release/ .
 
-ENTRYPOINT ["SampleWindowsService.exe"]
+# A Windows service refuses to run from a command line, so it is registered with the Service Control Manager of the image.
+RUN sc.exe create SampleWindowsService binPath= "C:\app\SampleWindowsService.exe" start= demand
+
+# The container lives as long as the service, as nothing else keeps it running.
+ENTRYPOINT ["powershell", "-NoProfile", "-Command", "Start-Service SampleWindowsService; Get-Service SampleWindowsService; while ((Get-Service SampleWindowsService).Status -eq 'Running') { Start-Sleep -Seconds 5 }; Get-Service SampleWindowsService; exit 1"]
