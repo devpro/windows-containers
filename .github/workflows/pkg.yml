@@ -1,0 +1,48 @@
+name: PKG
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  dotnet-framework-changes:
+    name: Changes .NET Framework
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
+    with:
+      paths: samples/dotnet-4.8 .github/workflows/pkg.yml
+      workflow-parts-version: 0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
+
+  # Windows images only, each for the Windows version of the runner, which a host of another version runs with Hyper-V isolation.
+  dotnet-framework-image:
+    name: "Image ${{ matrix.image-name }}"
+    needs: dotnet-framework-changes
+    if: needs.dotnet-framework-changes.outputs.changed == 'true'
+    permissions:
+      contents: read
+      id-token: write
+    strategy:
+      matrix:
+        include:
+          - image-name: winsamplenet48mvcwebapp
+            image-definition: SampleMvcWebApp/Dockerfile
+          - image-name: winsamplenet48svc
+            image-definition: SampleWindowsService/Dockerfile
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
+    with:
+      container-registry: docker.io
+      create-latest: ${{ github.ref_name == 'main' }}
+      image-definition: ${{ matrix.image-definition }}
+      image-name: ${{ matrix.image-name }}
+      image-path: docker.io/devprofr
+      image-tag: "1.0.${{ github.run_id }}"
+      image-platform: ""
+      windows-runner: windows-2025
+      working-directory: samples/dotnet-4.8
+      workflow-parts-version: 0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
+    secrets:
+      container-registry-username: ${{ secrets.DOCKERHUB_USERNAME }}
+      container-registry-password: ${{ secrets.DOCKERHUB_TOKEN }}

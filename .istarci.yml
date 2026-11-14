@@ -8,4 +8,4 @@ workflow:
     - github/*
     - devpro/github-workflow-parts/*
   exclude:
-    - deploy.yml
+    - pkg.yml

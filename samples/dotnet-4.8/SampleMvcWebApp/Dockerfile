@@ -1,4 +1,4 @@
-ARG DOTNET_VERSION=4.8-windowsservercore-ltsc2022
+ARG DOTNET_VERSION=4.8.1-windowsservercore-ltsc2025
 
 # https://mcr.microsoft.com/en-us/artifact/mar/dotnet/framework/sdk/tags
 FROM mcr.microsoft.com/dotnet/framework/sdk:${DOTNET_VERSION} AS build

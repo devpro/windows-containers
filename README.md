@@ -1,7 +1,7 @@
 # Windows Containers
 
 [![CI](https://github.com/devpro/windows-containers/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/devpro/windows-containers/actions/workflows/ci.yml)
-[![CD](https://github.com/devpro/windows-containers/actions/workflows/cd.yml/badge.svg?branch=main)](https://github.com/devpro/windows-containers/actions/workflows/cd.yml)
+[![PKG](https://github.com/devpro/windows-containers/actions/workflows/pkg.yml/badge.svg?branch=main)](https://github.com/devpro/windows-containers/actions/workflows/pkg.yml)
 
 Let's see how to manage applications that can only run in Windows containers.
 

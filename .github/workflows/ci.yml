@@ -1,76 +1,62 @@
-# title: Continuous Integration pipeline
 name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch: {}
 
 concurrency:
-  group: "${{ github.ref }}-${{ github.workflow }}"
+  group: ${{ github.ref }}-ci
   cancel-in-progress: true
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
-  changes:
-    runs-on: ubuntu-24.04
-    permissions:
-      pull-requests: read
-    outputs:
-      apps: ${{ steps.filter.outputs.changes }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  markup-lint:
+    name: Markup
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-markup-lint.yml@0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
 
-      - name: Identify changes
-        uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          base: ${{ github.ref }}
-          filters: |
-            winsamplenet48mvcwebapp: samples/dotnet-4.8/SampleMvcWebApp/*
-            winsamplenet48svc: samples/dotnet-4.8/SampleWindowsService/*
+  # A Windows build takes minutes on a runner billed twice a Linux one, so only a change of the samples starts it.
+  dotnet-framework-changes:
+    name: Changes .NET Framework
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
+    with:
+      paths: samples/dotnet-4.8 .github/workflows/ci.yml
+      workflow-parts-version: 0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
 
-  build:
-    runs-on: windows-2022
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  dotnet-framework-quality:
+    name: .NET Framework
+    needs: dotnet-framework-changes
+    if: needs.dotnet-framework-changes.outputs.changed == 'true'
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-dotnet-framework-quality.yml@0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
+    with:
+      solution: Devpro.SampleWindowsApps.sln
+      working-directory: samples/dotnet-4.8
+      workflow-parts-version: 0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
 
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v2
-
-      - name: Setup NuGet
-        uses: nuget/setup-nuget@v2
-
-      - name: Restore NuGet packages
-        run: nuget restore samples\dotnet-4.8\Devpro.SampleWindowsApps.sln
-
-      - name: Build
-        run: msbuild samples\dotnet-4.8\Devpro.SampleWindowsApps.sln /p:Configuration=Release
-
-  image-build:
-    needs: changes
-    if: needs.changes.outputs.apps != '[]'
-    runs-on: windows-2022
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Docker
-        uses: docker/setup-docker-action@v4
-
-      - name: Build winsamplenet48mvcwebapp container image
-        if: contains(needs.changes.outputs.apps, 'winsamplenet48mvcwebapp')
-        run: docker build . -t devprofr/winsamplenet48mvcwebapp -f SampleMvcWebApp\Dockerfile
-        working-directory: samples/dotnet-4.8
-
-      - name: Build winsamplenet48svc container image
-        if: contains(needs.changes.outputs.apps, 'winsamplenet48svc')
-        run: docker build . -t devprofr/winsamplenet48svc -f SampleWindowsService\Dockerfile
-        working-directory: samples/dotnet-4.8
+  # The images are built as the publication builds them, and never pushed from a pipeline other than the publication on main.
+  dotnet-framework-image:
+    name: "Image ${{ matrix.image-name }}"
+    needs: dotnet-framework-changes
+    if: needs.dotnet-framework-changes.outputs.changed == 'true'
+    strategy:
+      matrix:
+        include:
+          - image-name: winsamplenet48mvcwebapp
+            image-definition: SampleMvcWebApp/Dockerfile
+          - image-name: winsamplenet48svc
+            image-definition: SampleWindowsService/Dockerfile
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
+    with:
+      push: false
+      image-definition: ${{ matrix.image-definition }}
+      image-name: ${{ matrix.image-name }}
+      image-path: docker.io/devprofr
+      image-tag: "1.0.${{ github.run_id }}"
+      image-platform: ""
+      windows-runner: windows-2025
+      working-directory: samples/dotnet-4.8
+      workflow-parts-version: 0f2bcb930aee19ab6b91d67abc4ac36b970ed16b
