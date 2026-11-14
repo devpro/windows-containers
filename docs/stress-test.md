@@ -4,15 +4,16 @@
 
 Create namespace:
 
-```yaml
+```bash
 kubectl create ns stress-test
 ```
 
 ## PowerShell Script
 
-Use of [PowerShell image](https://mcr.microsoft.com/en-us/artifact/mar/powershell/tags)
+Use of [PowerShell image](https://mcr.microsoft.com/en-us/artifact/mar/powershell/tags),
+whose tag matches the Windows version of the nodes, as for any Windows container in Kubernetes.
 
-```yaml
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod

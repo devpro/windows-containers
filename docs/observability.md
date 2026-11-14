@@ -2,6 +2,8 @@
 
 ## OpenTelemetry
 
+The configurations below were tested with the collector 0.118.0.
+
 Container images:
 
 - `otel/opentelemetry-collector`: [hub.docker.com](https://hub.docker.com/r/otel/opentelemetry-collector/tags)
@@ -24,7 +26,10 @@ kubectl create ns observability
 
 ## OTLP receiver
 
-/!\ Daemonset is not possible as no image available for Windows (maybe in the future with [issue #339](https://github.com/open-telemetry/opentelemetry-collector-releases/issues/339))
+The collector runs as a deployment on Linux nodes, as below.
+Windows images are published since March 2025 ([issue #339](https://github.com/open-telemetry/opentelemetry-collector-releases/issues/339)),
+with tags for Windows Server 2019 and 2022 such as `0.165.0-windows-2022-amd64`, and none for Windows Server 2025 yet,
+so a daemonset on Windows nodes needs nodes of one of those versions.
 
 Create the configuration file (ref. [values.yaml](https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-collector/values.yaml)):
 
@@ -95,7 +100,7 @@ kubectl wait pods -n observability -l app.kubernetes.io/instance=otel-otlp --for
 
 Ref. [Filelog Receiver](https://opentelemetry.io/docs/kubernetes/getting-started/#filelog-receiver)
 
-/!\ Daemonset is not yet possible as no image available for Windows
+The collector runs as a deployment on Linux nodes, as a daemonset on Windows nodes needs the Windows images described above.
 
 Create the configuration file (ref. [values.yaml](https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-collector/values.yaml)):
 
@@ -168,7 +173,7 @@ kubectl wait pods -n observability -l app.kubernetes.io/instance=otel-k8snode --
 
 Ref. [Kubernetes Cluster Receiver](https://opentelemetry.io/docs/kubernetes/getting-started/#kubernetes-cluster-receiver)
 
-/!\ Daemonset is not yet possible as no image available for Windows
+The collector runs as a deployment on Linux nodes, as a daemonset on Windows nodes needs the Windows images described above.
 
 Create the configuration file (ref. [values.yaml](https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-collector/values.yaml)):
 
