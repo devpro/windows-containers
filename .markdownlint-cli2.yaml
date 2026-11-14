@@ -1,0 +1,8 @@
+gitignore: true
+ignores:
+  - CLAUDE.md
+config:
+  # ref. https://github.com/DavidAnson/markdownlint
+  default: true
+  MD013:
+    line_length: 240

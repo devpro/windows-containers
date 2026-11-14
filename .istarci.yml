@@ -1,0 +1,11 @@
+runner:
+  image: ghcr.io/devpro/ubuntu-dotnet:latest
+
+workflow:
+  onDisallowedAction: fail
+  allowedActions:
+    - actions/*
+    - github/*
+    - devpro/github-workflow-parts/*
+  exclude:
+    - deploy.yml
