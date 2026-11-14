@@ -1,5 +1,6 @@
 runner:
-  image: ghcr.io/devpro/ubuntu-dotnet:latest
+  # The markup lint runs on Node.js, and the .NET Framework jobs on Windows.
+  image: ghcr.io/devpro/ubuntu-node:latest
 
 workflow:
   onDisallowedAction: fail
