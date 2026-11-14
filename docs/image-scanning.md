@@ -6,8 +6,11 @@ so what a scanner reports depends on the files it recognizes in the image.
 
 ## In the pipeline
 
-The CI builds every image on Windows Server 2025 without pushing it, then scans it with [Grype](https://github.com/anchore/grype).
+Every image is built on Windows Server 2025 without being pushed, then scanned with [Grype](https://github.com/anchore/grype).
 
+- The CI scans the folder of the application only, copied out of the image in seconds.
+- The scan workflow scans the whole images every Monday, Windows layers included,
+  as saving a Windows image takes minutes for the gigabytes of its base layers.
 - Every finding is printed in the log of the job.
 - A critical vulnerability fails the job.
 - A high one does not, since today all of them are in the Windows base image, which only a new base image from Microsoft fixes.

@@ -12,3 +12,4 @@ workflow:
     - devpro/github-workflow-parts/*
   exclude:
     - pkg.yml
+    - scan.yml

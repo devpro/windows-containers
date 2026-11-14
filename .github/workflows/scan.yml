@@ -1,0 +1,45 @@
+name: Scan
+
+# The whole images are scanned every week, Windows layers included, as saving a Windows image takes minutes for each,
+# where the CI scans the folder of each application only.
+on:
+  schedule:
+    - cron: "0 5 * * 1"
+  workflow_dispatch: {}
+
+concurrency:
+  group: ${{ github.ref }}-scan
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  image-scan:
+    name: "Scan ${{ matrix.image-name }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image-name: winsamplenet48mvcwebapp
+            image-definition: SampleMvcWebApp/Dockerfile
+            working-directory: samples/dotnet-4.8
+          - image-name: winsamplenet48svc
+            image-definition: SampleWindowsService/Dockerfile
+            working-directory: samples/dotnet-4.8
+          - image-name: winsamplenet10razorwebapp
+            image-definition: src/SampleRazorWebApp/Dockerfile
+            working-directory: samples/dotnet-10.0
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    with:
+      push: false
+      scan: true
+      image-definition: ${{ matrix.image-definition }}
+      image-name: ${{ matrix.image-name }}
+      image-path: docker.io/devprofr
+      image-tag: "1.0.${{ github.run_id }}"
+      image-platform: ""
+      windows-runner: windows-2025
+      timeout-minutes: 90
+      working-directory: ${{ matrix.working-directory }}
+      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
