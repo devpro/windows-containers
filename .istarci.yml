@@ -1,6 +1,8 @@
 runner:
-  # The markup lint runs on Node.js, and the .NET Framework jobs on Windows.
+  # The markup lint runs on Node.js, the .NET code on the .NET SDK, and the .NET Framework code and the images on Windows.
   image: ghcr.io/devpro/ubuntu-node:latest
+  images:
+    "dotnet-quality*": ghcr.io/devpro/ubuntu-dotnet:latest
 
 workflow:
   onDisallowedAction: fail

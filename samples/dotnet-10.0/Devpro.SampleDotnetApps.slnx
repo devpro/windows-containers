@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SampleRazorWebApp/SampleRazorWebApp.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/SampleRazorWebApp.IntegrationTests/SampleRazorWebApp.IntegrationTests.csproj" />
+  </Folder>
+</Solution>
