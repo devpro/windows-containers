@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- A packages.config restore runs for the solution, where the warnings as errors of a project do not apply. -->
+    <!-- A package with a known high or critical vulnerability fails the restore, so it never reaches an image. -->
+    <MSBuildWarningsAsErrors>$(MSBuildWarningsAsErrors);NU1903;NU1904</MSBuildWarningsAsErrors>
+  </PropertyGroup>
+</Project>

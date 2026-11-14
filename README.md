@@ -15,7 +15,8 @@ Name                                                                        | La
 
 ## Documentation
 
-* [Cluster validation](docs/workstation.md)
+* [Cluster validation](docs/cluster-validation.md)
+* [Image scanning](docs/image-scanning.md)
 * [Observability](docs/observability.md)
 * [Stress test](docs/stress-test.md)
 * [Utilities](docs/utilities.md)

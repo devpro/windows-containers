@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- A package with a known high or critical vulnerability fails the restore, so it never reaches an image. -->
+    <WarningsAsErrors>$(WarningsAsErrors);NU1903;NU1904</WarningsAsErrors>
+  </PropertyGroup>
+</Project>
