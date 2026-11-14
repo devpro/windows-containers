@@ -13,3 +13,9 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:${DOTNET_VERSION} AS runtime
 WORKDIR /inetpub/wwwroot
 
 COPY --from=build /publish ./
+
+# The entrypoint of the image starts the IIS service, which needs an administrator, and the site runs under its application pool identity.
+USER ContainerAdministrator
+
+# An orchestrator restarts a container whose site stops answering, which a running IIS alone does not show.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 CMD curl.exe --fail --silent --output NUL http://localhost/

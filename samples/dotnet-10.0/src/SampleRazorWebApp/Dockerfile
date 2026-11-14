@@ -19,4 +19,10 @@ EXPOSE 8080
 
 COPY --from=build /app/publish .
 
+# The base image already runs as this account without administrator rights, which is stated so that no later change drops it unnoticed.
+USER ContainerUser
+
+# An orchestrator restarts a container whose application stops answering, which a running process alone does not show.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 CMD curl.exe --fail --silent --output NUL http://localhost:8080/
+
 ENTRYPOINT ["dotnet", "SampleRazorWebApp.dll"]
