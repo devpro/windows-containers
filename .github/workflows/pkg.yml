@@ -11,10 +11,10 @@ permissions:
 jobs:
   dotnet-framework-changes:
     name: Changes .NET Framework
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       paths: samples/dotnet-4.8 .github/workflows/pkg.yml
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
 
   # Windows images only, each for the Windows version of the runner, which a host of another version runs with Hyper-V isolation.
   dotnet-framework-image:
@@ -31,7 +31,7 @@ jobs:
             image-definition: SampleMvcWebApp/Dockerfile
           - image-name: winsamplenet48svc
             image-definition: SampleWindowsService/Dockerfile
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       container-registry: docker.io
       create-latest: ${{ github.ref_name == 'main' }}
@@ -42,17 +42,17 @@ jobs:
       image-platform: ""
       windows-runner: windows-2025
       working-directory: samples/dotnet-4.8
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
     secrets:
       container-registry-username: ${{ secrets.DOCKERHUB_USERNAME }}
       container-registry-password: ${{ secrets.DOCKERHUB_TOKEN }}
 
   dotnet-changes:
     name: Changes .NET
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       paths: samples/dotnet-10.0 .github/workflows/pkg.yml
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
 
   dotnet-image:
     name: Image winsamplenet10razorwebapp
@@ -61,7 +61,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       container-registry: docker.io
       create-latest: ${{ github.ref_name == 'main' }}
@@ -72,7 +72,7 @@ jobs:
       image-platform: ""
       windows-runner: windows-2025
       working-directory: samples/dotnet-10.0
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
     secrets:
       container-registry-username: ${{ secrets.DOCKERHUB_USERNAME }}
       container-registry-password: ${{ secrets.DOCKERHUB_TOKEN }}

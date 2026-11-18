@@ -30,7 +30,7 @@ jobs:
           - image-name: winsamplenet10razorwebapp
             image-definition: src/SampleRazorWebApp/Dockerfile
             working-directory: samples/dotnet-10.0
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       push: false
       scan: true
@@ -42,4 +42,4 @@ jobs:
       windows-runner: windows-2025
       timeout-minutes: 90
       working-directory: ${{ matrix.working-directory }}
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d

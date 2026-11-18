@@ -17,25 +17,25 @@ permissions:
 jobs:
   markup-lint:
     name: Markup
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-markup-lint.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-markup-lint.yml@398cf79719f90e41e3407bc9f060e297629d800d
 
   # A Windows build takes minutes on a runner billed twice a Linux one, so only a change of the samples starts it.
   dotnet-framework-changes:
     name: Changes .NET Framework
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       paths: samples/dotnet-4.8 .github/workflows/ci.yml
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
 
   dotnet-framework-quality:
     name: .NET Framework
     needs: dotnet-framework-changes
     if: needs.dotnet-framework-changes.outputs.changed == 'true'
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-dotnet-framework-quality.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-dotnet-framework-quality.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       solution: Devpro.SampleWindowsApps.sln
       working-directory: samples/dotnet-4.8
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
 
   # The images are built as the publication builds them, and never pushed from a pipeline other than the publication on main.
   # The folder of each application is scanned with Grype, which reads the .NET assemblies where Trivy finds no package.
@@ -53,7 +53,7 @@ jobs:
           - image-name: winsamplenet48svc
             image-definition: SampleWindowsService/Dockerfile
             scan-path: C:\app
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       push: false
       scan: true
@@ -65,31 +65,31 @@ jobs:
       image-platform: ""
       windows-runner: windows-2025
       working-directory: samples/dotnet-4.8
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
 
   dotnet-changes:
     name: Changes .NET
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-git-check.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       paths: samples/dotnet-10.0 .github/workflows/ci.yml
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
 
   # The code builds and is tested on Linux, as nothing in it needs Windows, only its image does.
   dotnet-quality:
     name: .NET
     needs: dotnet-changes
     if: needs.dotnet-changes.outputs.changed == 'true'
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-dotnet-quality.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-dotnet-quality.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       dotnet-test-args: --report-trx --coverage --coverage-output-format cobertura
       working-directory: samples/dotnet-10.0
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
 
   dotnet-image:
     name: Image winsamplenet10razorwebapp
     needs: dotnet-changes
     if: needs.dotnet-changes.outputs.changed == 'true'
-    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@9f9dd614d7f933c9dc74dffc588d818e2d22833c
+    uses: devpro/github-workflow-parts/.github/workflows/reusable-container-publication.yml@398cf79719f90e41e3407bc9f060e297629d800d
     with:
       push: false
       scan: true
@@ -101,4 +101,4 @@ jobs:
       image-platform: ""
       windows-runner: windows-2025
       working-directory: samples/dotnet-10.0
-      workflow-parts-version: 9f9dd614d7f933c9dc74dffc588d818e2d22833c
+      workflow-parts-version: 398cf79719f90e41e3407bc9f060e297629d800d
